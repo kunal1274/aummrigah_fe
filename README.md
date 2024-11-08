@@ -7,51 +7,92 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-### Tips for Adding Code Snippets in README
+### Steps followed to complete set up of vite react client
 
-1. **Use Triple Backticks**: Wrap JavaScript code blocks with triple backticks and specify `javascript` to enable syntax highlighting:
+1.**Create a vite project** : Create a folder and then run vite command
+1.1.**Create a vite project within the same folder** :
 
-   ````markdown
-   ```javascript
-   // Example JavaScript code
-   function add(a, b) {
-     return a + b;
-   }
-   ```
-   ````
+```bash
+md client
+```
 
-   ```
+To run vite command within the directory, first navigate to that directory
 
-   ```
+```bash
+cd client
+```
 
-2. **Explain Code Usage**: When you provide code examples, add brief comments or explanations to make the usage clear.
+```bash
+npm create vite@latest ./ -- --template react
+```
 
-3. **Include File Structure**: If your project has multiple files, consider adding a file structure overview:
+1.2.**Create a vite project which will create a new project** :
 
-   ```markdown
-   ## Project Structure
-   ```
+```bash
+npm create vite@latest ./client -- --template react
+```
 
-   📂task-manager  
-   ├── 📄index.html  
-   ├── 📄style.css  
-   ├── 📄app.js  
-   └── 📄README.md
+```bash
+cd client
+```
 
-   ```
+2.**To Log in to git hub** :
 
-   ```
+```bash
+gh auth login
+```
 
-4. **Add Screenshots**: Screenshots can be very helpful, especially for front-end projects. Include them with:
+It will ask some questions and you can answer the below :
 
-   ```markdown
-   ![Screenshot of Task Manager](./screenshot.png)
-   ```
+```
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations on this host? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI? Login with a web browser
+```
 
-5. **Linking Files or Folders**: If you're hosting your code on GitHub, you can add links to specific files or folders in your repository:
+and then
 
-   ```markdown
-   [app.js](./app.js) - Contains the main JavaScript code for managing tasks.
-   ```
+```
+! First copy your one-time code: 1550-1F7E
+Press Enter to open github.com in your browser...
+✓ Authentication complete.
+- gh config set -h github.com git_protocol https
+✓ Configured git protocol
+✓ Logged in as kunal1274
+! You were already logged in to this account
+```
 
-Your `README.md` is often the first impression others have of your project, so providing clear instructions and well-organized code examples can make a big difference.
+3.**Create the repo remotely** : We will use git hub cli to create the repo -
+
+```bash
+gh repo create aummrigah_fe --public --source=. --remote=origin
+```
+
+4.**push the git hub repository** : Let's push the initial
+
+```bash
+git branch -m "master"
+```
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "This is my initial commit"
+```
+
+```bash
+git push -u origin master
+```
+
+5.**Install and run the vite** :
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
